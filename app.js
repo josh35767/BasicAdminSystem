@@ -6,6 +6,11 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
+const session      = require('express-session');
+const passport     = require('passport');
+
+require('./config/passport-config.js');
+
 
 
 mongoose.connect('mongodb://localhost/admin-express');
