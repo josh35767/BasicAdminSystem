@@ -1,0 +1,16 @@
+<div class="container">
+
+  <h1> Tickets </h1>
+
+  <ul class="list-group">
+
+      <% tickets.forEach((oneTicket) => { %>
+      <li class="list-group-item">
+        <h5> <%= oneTicket.email %> </h5>
+        <p> <%= oneTicket.issue %> </p>
+        <a href="www.google.com"> Edit ticket </a>
+      </li>
+      <% }) %>
+
+  </ul>
+</div>

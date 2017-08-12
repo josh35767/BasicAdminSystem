@@ -26,4 +26,17 @@ router.get('/submitted', (req, res, next) => {
   res.render('submit');
 });
 
+router.get('/tickets', (req,res, next) => {
+  TicketModel.find({})
+  .sort({createdAt: 1})
+  .exec((err, allTickets) => {
+    if (err) {
+      console.log(err);
+      next(err);
+      return;
+    }
+    res.locals.tickets = allTickets;
+    res.render('ticketlist');
+  });
+});
 module.exports = router;
