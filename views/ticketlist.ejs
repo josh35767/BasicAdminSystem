@@ -6,10 +6,20 @@
 
       <% tickets.forEach((oneTicket) => { %>
       <li class="list-group-item">
-        <h5> <%= oneTicket.email %> </h5>
-        <p> <%= oneTicket.issue %> </p>
-        <a href="www.google.com"> Edit ticket </a>
+        <div class="details">
+          <h5> <%= oneTicket.email %> </h5>
+          <p> <%= oneTicket.issue %> </p>
+        </div>
+        <div class="status">
+          <% if(oneTicket.isOpen) { %>
+            <p> Open </p>
+          <% } else { %>
+            <p> Closed </p>
+          <% } %>
+          <a href="/close/<%= oneTicket._id %>"> Close ticket </a>
+        </div>
       </li>
+
       <% }) %>
 
   </ul>

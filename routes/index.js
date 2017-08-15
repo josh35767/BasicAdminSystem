@@ -35,8 +35,24 @@ router.get('/tickets', (req,res, next) => {
       next(err);
       return;
     }
+    console.log(allTickets);
     res.locals.tickets = allTickets;
     res.render('ticketlist');
   });
 });
+
+router.get('/close/:id' , (req, res, next) => {
+  TicketModel.findByIdAndUpdate(req.params.id,
+  {isOpen: false},
+   (err) => {
+    if (err) {
+      next(err);
+      return;
+    }
+    res.redirect('/tickets');
+
+  });
+});
+
+
 module.exports = router;

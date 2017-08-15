@@ -4,7 +4,11 @@ const Schema = mongoose.Schema;
 
 const ticketSchema = new Schema({
   email: {type: String},
-  issue: {type: String}
+  issue: {type: String},
+  isOpen: {
+    type: Boolean,
+    default: true
+  }
 },
 {
   timestamps: true
